@@ -34345,7 +34345,7 @@ void main() {
           }), this.renderer.shadowMap.enabled = true, this.renderer.shadowMap.type = np, this.renderer.setSize(window.innerWidth, window.innerHeight), document.body.appendChild(this.renderer.domElement), new _F(this.initSettings.fog, this.scene).addSkyBox(), this.initLighting(), mg(this.cameraState, this.camera, this.renderer), this.riverCurveMesh = this.createRiverCurveMesh(), this.groundMeshToScene = true, this.terrain = await UP(this.GLTFLoader, this.scene, this.groundMeshToScene), await this._loadStructures(), this.initSettings.blades && this._windMillBlades(), this.shaders = ML(this.scene), vF(this.worldPhysics, this.terrain), this.initSettings.grass && this._addGrass(this.terrain), this.initSettings.fog && this.addExpImprovedFog(14674419, 6e-4), this.character = IL(this.worldPhysics, this.scene, Ao, false), this._loadAnimatedModel(), this.loadPlayerAreaLimiter(), this.initSettings.chicks && this._loadAnimatedChicks(), this.audio = this._initAudio(), this.setInteractions(), this.setVegetation(), this.initSettings.water ? this._addWater() : this._addSimpleWater(), this.setCollidersManually(rg), this.animate();
         }
         _loadAnimatedChicks() {
-          const n = this.controls._input._keys, r = this.character.mesh.position, c = YL(this.scene, this.LoadingManager, da, this.worldPhysics, this.terrain, yP, 4, 10, false, false, this.initSettings.fog, xP, false, n, r);
+          const n = this.controls._input._keys, r = this.character.mesh.position, c = YL(this.scene, this.LoadingManager, da, this.worldPhysics, this.terrain, yP, 4, 5, false, false, this.initSettings.fog, xP, false, n, r);
           this.chicks = c;
         }
         _windMillBlades() {
