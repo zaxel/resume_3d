@@ -30645,7 +30645,7 @@ void main() {
       }
       class uF {
         constructor(t, e, i, n, r, a, o, c, l, h, d) {
-          this.scene = o, this.camera = i, this.audioLoader = new hw(), this.btnsController = h, this.chicks = d, this.updatesCount = 0, this.audioFiles = a, this.riverCurve = e.riverCatmullCurve, this.musicStatus = c, this.soundsStatus = l, this.listener = new fw(), this.camera.add(this.listener), this.keys = n, this.charStateMachine = r, this.prevState = null, this.prevExternLoadedSoundLink = null, this.externLoadedSound = null, this.walkFwdSound = new Di(this.listener), this.runFwdSound = new Di(this.listener), this.walkBwdSound = new Di(this.listener), this.runBwdSound = new Di(this.listener), this.jumpStandSound = new Di(this.listener), this.jumpBwdSound = new Di(this.listener), this.movementSounds = [
+          this.scene = o, this.camera = i, this.audioLoader = new hw(), this.btnsController = h, this.chicks = d, this.updatesCount = 0, this.initSettings = t, this.audioFiles = a, this.riverCurve = e.riverCatmullCurve, this.musicStatus = c, this.soundsStatus = l, this.listener = new fw(), this.camera.add(this.listener), this.keys = n, this.charStateMachine = r, this.prevState = null, this.prevExternLoadedSoundLink = null, this.externLoadedSound = null, this.walkFwdSound = new Di(this.listener), this.runFwdSound = new Di(this.listener), this.walkBwdSound = new Di(this.listener), this.runBwdSound = new Di(this.listener), this.jumpStandSound = new Di(this.listener), this.jumpBwdSound = new Di(this.listener), this.movementSounds = [
             this.walkFwdSound,
             this.runFwdSound,
             this.walkBwdSound,
@@ -30659,7 +30659,7 @@ void main() {
           ], this.parkSounds = new Di(this.listener), this.riverSounds = new Xc(this.listener), this.scene.add(this.riverSounds), this.ambienceSounds = [
             this.parkSounds,
             this.riverSounds
-          ], t.blades && (this.windmillSounds = new Xc(this.listener), this.ambienceSounds.push(this.windmillSounds), this.scene.children.find((p) => p.name === "blade").children[0].children[0].add(this.windmillSounds)), t.chicks && (this.chicksSounds = new Xc(this.listener), this.ambienceSounds.push(this.chicksSounds), this.scene.add(this.chicksSounds)), this.initAudioFiles(), this.soundsManager(), this.updateRiverSound(), this.updateChicksSound(), this.initHelpBtnsHandler();
+          ], this.initSettings.blades && (this.windmillSounds = new Xc(this.listener), this.ambienceSounds.push(this.windmillSounds), this.scene.children.find((p) => p.name === "blade").children[0].children[0].add(this.windmillSounds)), this.initSettings.chicks && (this.chicksSounds = new Xc(this.listener), this.ambienceSounds.push(this.chicksSounds), this.scene.add(this.chicksSounds)), this.initAudioFiles(), this.soundsManager(), this.updateRiverSound(), this.initSettings.chicks && this.updateChicksSound(), this.initHelpBtnsHandler();
         }
         updateRiverSound() {
           const t = this.getClosestPointToRiver(this.camera.position);
@@ -30678,13 +30678,13 @@ void main() {
           }
           return e;
         }
-        getCenterPointToChicks(t) {
-          const e = this.chicks.map((n) => n.chickPhysics.mesh.position), i = e.reduce((n, r) => (n.x += r.x, n.y += r.y, n.z += r.z, n), {
+        getCenterPointToChicks() {
+          const t = this.chicks.map((i) => i.chickPhysics.mesh.position), e = t.reduce((i, n) => (i.x += n.x, i.y += n.y, i.z += n.z, i), {
             x: 0,
             y: 0,
             z: 0
           });
-          return i.x /= e.length, i.y /= e.length, i.z /= e.length, i;
+          return e.x /= t.length, e.y /= t.length, e.z /= t.length, e;
         }
         playSound(t, e = 0.5) {
           if (this.soundsStatus) {
@@ -30790,7 +30790,7 @@ void main() {
           this.soundsStatus = false, this.clearMovementSounds(), this.clearAmbienceSounds(), this.btnsController.soundOff(false);
         }
         updateSoundsState() {
-          if (this.updatesCount++, this.updatesCount % 10 && this.updateChicksSound(), !this.charStateMachine._currentState) return;
+          if (this.updatesCount++, this.initSettings.chicks && this.updatesCount % 10 && this.updateChicksSound(), !this.charStateMachine._currentState) return;
           const t = this.charStateMachine._currentState.Name;
           if (this.camera.position.distanceTo(this.riverSounds.position) > 2 && this.updateRiverSound(), t === this.prevState) return;
           if (!this.soundsStatus && !this.musicStatus) {
