@@ -18280,7 +18280,7 @@ void main() {
           this.grassParticles.material.uniforms.time.value = t;
         }
       }
-      const mv = "/3d_resume/assets/rapier_wasm3d_bg-CcbIg-ps.wasm", wv = async (s = {}, t) => {
+      const mv = "/resume_3d/assets/rapier_wasm3d_bg-CcbIg-ps.wasm", wv = async (s = {}, t) => {
         let e;
         if (t.startsWith("data:")) {
           const i = t.replace(/^data:.*?base64,/, "");
@@ -30072,7 +30072,7 @@ void main() {
             links: [
               {
                 text: "Visit 03",
-                link: "https://zaxel.github.io/3d_resume"
+                link: "https://zaxel.github.io/resume_3d"
               }
             ]
           },
