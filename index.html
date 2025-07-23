@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3d resume</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script type="module" src="./script.js"></script>
+  </head>
+
+  <body>
+    <div id="config" class="config">
+      <div class="config__container">
+        <header class="config__header c-header">
+          <h1 class="c-header__settings">Before Start</h1>
+        </header>
+        <main class="config__main c-main">
+          <fieldset class="c-main__left">
+            <legend class="c-main__title">Settings</legend>
+            <ul class="c-main__features">
+              <li>
+                <input checked type="checkbox" id="config-chicks" value="chicks" /><label
+                  class="c-main__checkmark"
+                  for="config-chicks"
+                ></label
+                ><label class="c-main__label" for="config-chicks">Chickens</label>
+              </li>
+              <li>
+                <input checked type="checkbox" id="config-fog" value="fog" /><label
+                  class="c-main__checkmark"
+                  for="config-fog"
+                ></label
+                ><label class="c-main__label" for="config-fog">Fog</label>
+              </li>
+              <li>
+                <input checked type="checkbox" id="config-water" value="water" /><label
+                  class="c-main__checkmark"
+                  for="config-water"
+                ></label
+                ><label class="c-main__label" for="config-water">Water</label>
+              </li>
+              <li>
+                <input checked type="checkbox" id="config-grass" value="grass" /><label
+                  class="c-main__checkmark"
+                  for="config-grass"
+                ></label
+                ><label class="c-main__label" for="config-grass">Grass</label>
+              </li>
+              <li>
+                <input checked type="checkbox" id="config-blades" value="blades" /><label
+                  class="c-main__checkmark"
+                  for="config-blades"
+                ></label
+                ><label class="c-main__label" for="config-blades">Windmill Blades</label>
+              </li>
+              <li>
+                <input checked type="checkbox" id="config-sounds" value="sounds" /><label
+                  class="c-main__checkmark"
+                  for="config-sounds"
+                ></label
+                ><label class="c-main__label" for="config-sounds">Sounds</label>
+              </li>
+              <li>
+                <input checked type="checkbox" id="config-music" value="music" />
+                <label class="c-main__checkmark" for="config-music"></label
+                ><label class="c-main__label" for="config-music">Music</label>
+              </li>
+              <li>
+                <input checked type="checkbox" id="config-stat" value="stats" />
+                <label class="c-main__checkmark" for="config-stat"></label
+                ><label class="c-main__label" for="config-stat">FPS Stats</label>
+              </li>
+            </ul>
+            <button class="c-main__lowPC-button">Performance Mode</button>
+          </fieldset>
+          <fieldset class="c-main__right">
+            <legend class="c-main__title">Controls</legend>
+            <div class="c-main__controls-kbd">
+              <dl class="c-main__kbd wasd">
+                <dt class="wasd__buttons">
+                  <div class="wasd__btns">
+                    <div class="wasd__top-line">
+                      <kbd>w</kbd>
+                    </div>
+                    <div class="wast__bottom-line">
+                      <kbd>a</kbd>
+                      <kbd>s</kbd>
+                      <kbd>d</kbd>
+                    </div>
+                  </div>
+                  <span> or </span>
+                  <div class="wasd__arrs">
+                    <div class="wasd__top-line">
+                      <kbd>↑</kbd>
+                    </div>
+                    <div class="wasd__bottom-line">
+                      <kbd>←</kbd>
+                      <kbd>↓</kbd>
+                      <kbd>→</kbd>
+                    </div>
+                  </div>
+                </dt>
+                <dd>- movement</dd>
+              </dl>
+              <dl class="c-main__kbd rand-action-kbd">
+                <dt>
+                  <kbd>f</kbd>
+                </dt>
+                <dd>- random action</dd>
+              </dl>
+              <dl class="c-main__kbd jump-kbd">
+                <dt>
+                  <kbd>ctrl</kbd>
+                </dt>
+                <dd>- jump</dd>
+              </dl>
+              <dl class="c-main__kbd run-kbd">
+                <dt>hold <kbd>shift</kbd></dt>
+                <dd>- run</dd>
+              </dl>
+              <dl class="c-main__kbd help-kbd">
+                <dt>
+                  <kbd>h</kbd>
+                </dt>
+                <dd>- help</dd>
+              </dl>
+              <dl class="c-main__kbd sounds-kbd">
+                <dt>
+                  <kbd>n</kbd>
+                </dt>
+                <dd>- sounds</dd>
+              </dl>
+              <dl class="c-main__kbd music-kbd">
+                <dt>
+                  <kbd>m</kbd>
+                </dt>
+                <dd>- music</dd>
+              </dl>
+              <dl class="c-main__kbd chapter-kbd">
+                <dt>
+                  <kbd>r</kbd>
+                </dt>
+                <dd>- open/close chapter</dd>
+              </dl>
+            </div>
+          </fieldset>
+        </main>
+        <footer class="config__footer c-footer">
+          <button class="c-footer__start-btn">start</button>
+        </footer>
+        <div class="config__resume-pdf">
+          <a href="./book/resume.pdf" target="_blank">PDF Version</a>
+        </div>
+      </div>
+    </div>
+    <div id="help-menu" class="help-menu">
+      <div class="help-menu__wrapper">
+        <button class="help-menu__sounds">
+          <img data-group="sound" src="./icons/sound-on.svg" alt="sounds on">
+        </button>
+        <button class="help-menu__music">
+          <img data-group="music" src="./icons/music-on.svg" alt="music on">
+        </button>
+        <button class="help-menu__help">
+          <img src="./icons/help.svg" alt="help">
+        </button>
+      </div>
+    </div>
+    <div id="loading" class="loading">
+      <div class="loading__modal">
+        <label class="loading__label" for="id-progress">Loading ...</label>
+        <progress style="background-color: black;" id="ld-progress" class="loading__progress" value="0" max="100"></div>
+      </div>
+    </div>
+    <div id="modal-marker-cont"></div>
+    <div id="modal-chapter-cont">
+      <div class="modal-chapter">
+        <canvas class="chapter-canvas"></canvas>
+        <button class="chapter-close">Close</button>
+        <div class="chapter-aside">
+          <a class="chapter-link-show" href="./book/resume.pdf" target="_blank">Full Resume</a>
+        </div>
+        <div id="pagination">
+          <button id="btn-front">Front Cover</button>
+          <div id="page-buttons"></div>
+          <button id="btn-back">Back Cover</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

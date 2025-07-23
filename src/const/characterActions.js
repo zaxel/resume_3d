@@ -1,0 +1,2 @@
+﻿export const characterActions = ['dance', 'dance2', 'dance3', 'capoeira', 'hip_hop_dancing'];
+export const reachMapBoardActions = [  'arguing', 'looking_behind', 'pray', 'no', 'pointing', 'shaking_it_off'];
