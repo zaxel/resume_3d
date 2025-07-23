@@ -17,7 +17,28 @@ export class HelpMenu {
     const modal = document.createElement("div");
     modal.classList.add("help__container");
 
-    modal.innerHTML = `<fieldset class="c-main__right">
+    modal.innerHTML = `<fieldset class="c-main__left">
+            <legend class="c-main__title">How to Play</legend>
+            <div class="c-main__how-container">
+              <div class="c-main__how-pointer how-pointer">
+                <div class="how-pointer__img-container">
+                  <img src="./help/pointers.jpg" alt="chapters pointer">
+                </div>
+                <p class="how-pointer__desctiption">
+                  Follow the pointers to each resume board.
+                </p>
+              </div>
+              <div class="c-main__how-bords how-boards">
+                <div class="how-boards__img-container">
+                  <img src="./help/board.jpg" alt="chapter board">
+                </div>
+                <p class="how-boards__desctiption">
+                  Approach a chapter board and press <kbd>r</kbd>.
+                </p>
+              </div>
+            </div>
+          </fieldset>
+        <fieldset class="c-main__right">
             <legend class="c-main__title">Controls</legend>
             <div class="c-main__controls-kbd">
               <dl class="c-main__kbd wasd">
@@ -44,7 +65,7 @@ export class HelpMenu {
                     </div>
                   </div>
                 </dt>
-                <dd>- movement</dd>
+                
               </dl>
               <dl class="c-main__kbd rand-action-kbd">
                 <dt>
@@ -87,7 +108,8 @@ export class HelpMenu {
                 <dd>- open/close chapter</dd>
               </dl>
             </div>
-          </fieldset>`;
+          </fieldset>
+          `;
 
     help.append(modal);
 

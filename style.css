@@ -27,7 +27,7 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 24px;
+  font-size: 1.5rem;
   text-align: center;
 
   width: 10vw;
@@ -75,7 +75,7 @@ kbd {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .show-marker-modal {
@@ -124,7 +124,7 @@ kbd {
   color: #f5e0c7;
   border: none;
   padding: 10px 14px;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
   border-radius: 6px;
   font-weight: bold;
@@ -161,7 +161,7 @@ kbd {
   color: #f5e0c7;
   border: none;
   padding: 10px 14px;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
   border-radius: 6px;
   font-weight: bold;
@@ -200,7 +200,7 @@ kbd {
   color: #f5e0c7;
   border: none;
   padding: 10px 14px;
-  font-size: 14px;
+  font-size: 0.875rem;
   text-align: center;
   cursor: pointer;
   border-radius: 6px;
@@ -225,6 +225,7 @@ a.chapter-link-show {
 
 /*configuration page start*/
 .config {
+  /* display: none; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -246,7 +247,7 @@ a.chapter-link-show {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 28px;
+  font-size: 1.5rem;
   text-align: center;
 
   border-radius: 11px;
@@ -282,7 +283,7 @@ a.chapter-link-show {
 }
 .c-main legend {
   font-weight: 600;
-  font-size: 37px;
+  font-size: 2.313rem;
   padding: 0 18px;
 }
 .c-main kbd {
@@ -294,7 +295,7 @@ a.chapter-link-show {
   color: #f5e0c7;
   border: none;
   padding: 10px 14px;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
   border-radius: 6px;
   font-weight: bold;
@@ -320,11 +321,46 @@ a.chapter-link-show {
   padding: 12px;
 }
 .c-main__left {
-  flex: 0 1 30%;
+  flex: 0 1 40%;
+}
+.c-main__middle {
+  flex: 0 1 25%;
 }
 .c-main__right {
-  flex: 0 1 70%;
+  flex: 0 1 35%;
 }
+
+.how-pointer,
+.how-boards{
+  display: flex;
+}
+.how-pointer__img-container,
+.how-boards__img-container{
+  position: relative;
+  flex: 0 0 50%;
+  aspect-ratio: 3/2;
+  border-radius: 4px;
+}
+.how-pointer__img-container{
+  margin-bottom: 10px;
+}
+.how-pointer__img-container img,
+.how-boards__img-container img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.how-pointer__desctiption,
+.how-boards__desctiption{
+  flex: 0 0 50%;
+  text-align: left;
+  margin-left: 8px;
+}
+
+
 .c-main__features {
   text-align: left;
   margin: -32px 0 8px 0;
@@ -407,7 +443,7 @@ a.chapter-link-show {
 }
 
 .config .c-footer__start-btn {
-  font-size: 22px;
+  font-size: 1.375rem;
   padding: 8px 18px;
   text-transform: uppercase;
 }
@@ -424,7 +460,7 @@ a.chapter-link-show {
   color: #f5e0c7;
   border: none;
   padding: 10px 14px;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-family: monospace, sans-serif;
   text-align: center;
   cursor: pointer;
@@ -458,7 +494,7 @@ a.chapter-link-show {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 28px;
+  font-size: 1.75rem;
   text-align: center;
 
   border-radius: 11px;
@@ -475,9 +511,15 @@ a.chapter-link-show {
 }
 .loading__label {
   font-weight: 700;
-  font-size: 40px;
+  font-size: 2.5rem;
   display: block;
-  margin-bottom: 6dvh;
+  margin-bottom: 1dvh;
+}
+.loading__description {
+  font-weight: 500;
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 1dvh;
 }
 .loading__progress {
   border: 2px solid black;
@@ -551,13 +593,16 @@ a.chapter-link-show {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 700px;
+  width: 70vw;
+
+  display: flex;
+  gap: 1rem;
 
   font-family: "caveat", cursive;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 28px;
+  font-size: 1.75rem;
   text-align: center;
 
   border-radius: 11px;
@@ -571,9 +616,22 @@ a.chapter-link-show {
   opacity: 1;
   visibility: visible;
 }
+.help__container .c-main__left{
+  flex: 0 1 50%;
+}
+.help__container .c-main__right{
+  flex: 0 1 50%;
+  }
 .help__container .c-main__right dd{
   left: 60%;
   }
+
+.help__container fieldset{
+  border-radius: 12px;
+} 
+.help__container legend{
+  padding: 0 8px;
+} 
 
 .help__close {
   position: absolute;
@@ -585,7 +643,7 @@ a.chapter-link-show {
   color: #f5e0c7;
   border: none;
   padding: 10px 14px;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
   border-radius: 6px;
   font-weight: bold;

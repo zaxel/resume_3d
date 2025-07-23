@@ -44,10 +44,10 @@ export const createCharacterPhysics = (worldPhysics, scene, position, wareFrameE
   const rigidBody = worldPhysics.createRigidBody(rigidBodyDesc);
 
   const colliderDesc = RAPIER.ColliderDesc.capsule(halfHeight, radius);
-  colliderDesc.setRestitution(0.1);
-  colliderDesc.setMass(500);
+  colliderDesc.setRestitution(0.01); //bouncing
+  colliderDesc.setDensity(2) //mass alt
+  
   worldPhysics.createCollider(colliderDesc, rigidBody);
-  // .setFriction(1000);
 
   const characterController = worldPhysics.createCharacterController(0.01);
   const character = { rigidBody, controller: characterController };

@@ -43,7 +43,7 @@ By visiting different structures, users unlock various resume sections.
 *************************************************
 ### ***CHECK IT OUT*** 
 
-[https://zaxel.github.io/3d_resume/](https://zaxel.github.io/3d_resume/)
+[https://zaxel.github.io/resume_3d/](https://zaxel.github.io/resume_3d/)
 
 
 *************************************************

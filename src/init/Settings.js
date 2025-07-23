@@ -13,7 +13,8 @@ export class Settings {
             music: false,
             stats: false,
             blades: false, 
-            chicks: false
+            chicks: false,
+            cobblestoneRoad: false
         };
 
         this.Game = Game;

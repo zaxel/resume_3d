@@ -18,17 +18,38 @@
         </header>
         <main class="config__main c-main">
           <fieldset class="c-main__left">
+            <legend class="c-main__title">How to Play</legend>
+            <div class="c-main__how-container">
+              <div class="c-main__how-pointer how-pointer">
+                <div class="how-pointer__img-container">
+                  <img src="./src/images/initPage/pointers.jpg" alt="chapters pointer">
+                </div>
+                <p class="how-pointer__desctiption">
+                  Follow the pointers to each resume board.
+                </p>
+              </div>
+              <div class="c-main__how-bords how-boards">
+                <div class="how-boards__img-container">
+                  <img src="./src/images/initPage/board.jpg" alt="chapter board">
+                </div>
+                <p class="how-boards__desctiption">
+                  Approach a chapter board and press <kbd>r</kbd>.
+                </p>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="c-main__middle">
             <legend class="c-main__title">Settings</legend>
             <ul class="c-main__features">
               <li>
-                <input checked type="checkbox" id="config-chicks" value="chicks" /><label
+                <input type="checkbox" id="config-chicks" value="chicks" /><label
                   class="c-main__checkmark"
                   for="config-chicks"
                 ></label
                 ><label class="c-main__label" for="config-chicks">Chickens</label>
               </li>
               <li>
-                <input checked type="checkbox" id="config-fog" value="fog" /><label
+                <input type="checkbox" id="config-fog" value="fog" /><label
                   class="c-main__checkmark"
                   for="config-fog"
                 ></label
@@ -47,6 +68,13 @@
                   for="config-grass"
                 ></label
                 ><label class="c-main__label" for="config-grass">Grass</label>
+              </li>
+              <li>
+                <input type="checkbox" id="config-cobblestoneRoad" value="cobblestoneRoad" /><label
+                  class="c-main__checkmark"
+                  for="config-cobblestoneRoad"
+                ></label
+                ><label class="c-main__label" for="config-cobblestoneRoad">Cobblestone Road</label>
               </li>
               <li>
                 <input checked type="checkbox" id="config-blades" value="blades" /><label
@@ -102,7 +130,6 @@
                     </div>
                   </div>
                 </dt>
-                <dd>- movement</dd>
               </dl>
               <dl class="c-main__kbd rand-action-kbd">
                 <dt>
@@ -142,7 +169,7 @@
                 <dt>
                   <kbd>r</kbd>
                 </dt>
-                <dd>- open/close chapter</dd>
+                <dd>- read chapter</dd>
               </dl>
             </div>
           </fieldset>
@@ -171,6 +198,7 @@
     <div id="loading" class="loading">
       <div class="loading__modal">
         <label class="loading__label" for="id-progress">Loading ...</label>
+        <p class="loading__description">Loading large assets—thanks for your patience.</p>
         <progress style="background-color: black;" id="ld-progress" class="loading__progress" value="0" max="100"></div>
       </div>
     </div>

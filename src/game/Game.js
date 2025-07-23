@@ -30,7 +30,7 @@ import {
   initCharPosition,
   initChickPosition,
   mapScaleFactor,
-  maxChickOffset
+  maxChickOffset,
 } from "../const/game.js";
 import {
   loadCompressedModel,
@@ -111,7 +111,8 @@ export class InitApp {
     this.terrain = await loadTerrainMesh(
       this.GLTFLoader,
       this.scene,
-      this.groundMeshToScene
+      this.groundMeshToScene,
+      this.initSettings
     );
     await this._loadStructures();
     if (this.initSettings.blades) this._windMillBlades();
@@ -119,13 +120,11 @@ export class InitApp {
     this.shaders = objectsShadersFogReady(this.scene);
 
     setupTerrainPhysic(this.worldPhysics, this.terrain);
-    
+
     if (this.initSettings.grass) this._addGrass(this.terrain);
-    
+
     if (this.initSettings.fog) this.addExpImprovedFog(0xdfe9f3, 0.0006);
-    
-    
-    
+
     this.character = createCharacterPhysics(
       this.worldPhysics,
       this.scene,
@@ -137,8 +136,7 @@ export class InitApp {
 
     this.loadPlayerAreaLimiter();
 
-    if(this.initSettings.chicks)
-      this._loadAnimatedChicks();
+    if (this.initSettings.chicks) this._loadAnimatedChicks();
 
     this.audio = this._initAudio();
 
@@ -154,9 +152,9 @@ export class InitApp {
     this.animate();
   }
 
-   _loadAnimatedChicks(){
+  _loadAnimatedChicks() {
     const chickSize = 4;
-    const chicksAmount = 10;
+    const chicksAmount = 5;
     const showLimitArea = false;
     const mainCharStatus = this.controls._input._keys;
     const mainCharPosition = this.character.mesh.position;
@@ -164,11 +162,22 @@ export class InitApp {
     const chickActionToolTip = false;
 
     const chicks = loadChickModels(
-      this.scene, this.LoadingManager, GLTFLoader, 
-      this.worldPhysics, this.terrain, initChickPosition, 
-      chickSize, chicksAmount, chickPhysicFrameEnabled, chickActionToolTip, this.initSettings.fog,
-      maxChickOffset, showLimitArea, mainCharStatus, mainCharPosition
-    ); 
+      this.scene,
+      this.LoadingManager,
+      GLTFLoader,
+      this.worldPhysics,
+      this.terrain,
+      initChickPosition,
+      chickSize,
+      chicksAmount,
+      chickPhysicFrameEnabled,
+      chickActionToolTip,
+      this.initSettings.fog,
+      maxChickOffset,
+      showLimitArea,
+      mainCharStatus,
+      mainCharPosition
+    );
     this.chicks = chicks;
   }
 
@@ -195,7 +204,7 @@ export class InitApp {
     this.controls = controls;
     this.keys = keys;
   }
- 
+
   initHelpMenu() {
     const helpMenu = new HelpMenu(
       this.initSettings.sounds,
@@ -274,7 +283,7 @@ export class InitApp {
 
   addExpImprovedFog(color, density) {
     this._fogController = new Fog(this.terrain, this.shaders);
-    this._fogController.fogHuck();
+    this._fogController.setupFog();
     this.scene.fog = new THREE.FogExp2(color, density);
   }
 
@@ -304,34 +313,64 @@ export class InitApp {
       this.LoadingManager,
       this.renderer,
       this.groundMeshToScene,
-      "./map/bridges_c.glb",
+      "./models/bridges/bridges_c.glb",
       this.scene
     );
     await loadCompressedModel(
       this.LoadingManager,
       this.renderer,
       this.groundMeshToScene,
-      "./map/signs_c.glb",
+      "./models/signs/signs_c.glb",
       this.scene
     );
     await loadCompressedModel(
       this.LoadingManager,
       this.renderer,
       this.groundMeshToScene,
-      "./map/structures_no_wind_blade_c.glb",
+      "./models/structures/structures_no_wind_blade_c.glb",
       this.scene
     );
     await loadCompressedModel(
       this.LoadingManager,
       this.renderer,
       this.groundMeshToScene,
-      "./map/wind_mill_blade_c.glb",
+      "./models/structures/wind_mill_blade_c.glb",
       this.scene,
       { x: -147.7, y: 77.4, z: 398 },
       { x: 8, y: 8, z: 8 },
       { x: degToRad(90), y: 0, z: degToRad(215) },
       (name = "blade")
     );
+
+    if (this.initSettings.cobblestoneRoad) {
+      await loadCompressedModel(
+        this.LoadingManager,
+        this.renderer,
+        this.groundMeshToScene,
+        "./models/cobblestoneRoad/left_bank_c.glb",
+        this.scene,
+        { x: 0, y: 0, z: 0 },
+        { x: mapScaleFactor.x, y: mapScaleFactor.y, z: mapScaleFactor.z },
+        { x: 0, y: 0, z: 0 },
+        name = '',
+        true, //receiveShadow
+        false, //castShadow
+      );
+      
+      await loadCompressedModel(
+        this.LoadingManager,
+        this.renderer,
+        this.groundMeshToScene,
+        "./models/cobblestoneRoad/right_bank_c.glb",
+        this.scene,
+        { x: 0, y: 0, z: 0 },
+        { x: mapScaleFactor.x, y: mapScaleFactor.y, z: mapScaleFactor.z },
+        { x: 0, y: 0, z: 0 },
+        name = '',
+        true, //receiveShadow
+        false, //castShadow
+      );
+    }
   }
 
   _createPlaneGround(x = 100, y = 0.1, z = 100) {
@@ -562,8 +601,7 @@ export class InitApp {
       if (this.windMill) this.windMill.updateBlades(deltaTime);
 
       // this._updateCharacterMesh();
-      if(this.playerAreaLimiter)
-        this.playerAreaLimiter.update();
+      if (this.playerAreaLimiter) this.playerAreaLimiter.update();
 
       //update markers
       if (this.markersDistanceHandler) {
@@ -593,11 +631,11 @@ export class InitApp {
 
   step(deltaTime) {
     if (this.controls) this.controls.updateController(deltaTime);
-      if (this.chicks && this.chicks.length){
-        for(let i=0; i<this.chicks.length; i++){
-          this.chicks[i].controls.updateChickController(deltaTime);
-        }
+    if (this.chicks && this.chicks.length) {
+      for (let i = 0; i < this.chicks.length; i++) {
+        this.chicks[i].controls.updateChickController(deltaTime);
       }
+    }
     if (this.cameraState.thirdPersonCameraEnabled) {
       this.cameraState.thirdPersonCameraInstance._update(deltaTime);
     }

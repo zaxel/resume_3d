@@ -22,10 +22,10 @@ export const loadModel = (url, scene, position = { x: 0, y: 0, z: 0 }, scale = 1
   );
 };
 
-export const loadTerrainMesh = async (loader, scene, isAddToScene) => {
+export const loadTerrainMesh = async (loader, scene, isAddToScene, initSettings) => {
   return new Promise((resolve, reject) => {
     loader.load(
-      "./map/map.glb",
+      initSettings.cobblestoneRoad ? "./map/cobblestoneRoadReady_map.glb" : "./map/map.glb",
       (gltf) => {
         const terrain = gltf.scene;
         terrain.scale.set(mapScaleFactor.x, mapScaleFactor.y, mapScaleFactor.z);
@@ -65,7 +65,9 @@ export const loadCompressedModel = (() => {
     position = { x: 0, y: 0, z: 0 },
     scale = { x: mapScaleFactor.x, y: mapScaleFactor.y, z: mapScaleFactor.z },
     rotation = { x: 0, y: 0, z: 0 },
-    name = ''
+    name = '',
+    receiveShadow = true,
+    castShadow = true
   ) => {
     return new Promise((resolve, reject) => {
       if (!gLoader) {
@@ -93,8 +95,8 @@ export const loadCompressedModel = (() => {
 
           model.traverse((child) => {
             if (child.isMesh) {
-              child.receiveShadow = true;
-              child.castShadow = true;
+              child.receiveShadow = receiveShadow;
+              child.castShadow = castShadow;
             }
           });
 
