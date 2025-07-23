@@ -3,7 +3,7 @@ export const cv = {
         {front: "portfolio-cover", back: "portfolio_devices_first", links: []}, 
         {front: "portfolio_devices_second", back: "portfolio_burger_first", links: [{text: "Visit 01", link: "https://zaxel.github.io/react_simple_shop"}]}, 
         {front: "portfolio_burger_second", back: "portfolio_resume_first", links: [{text: "Visit 02", link: "https://zaxel.github.io/react_burger_shop"}]},
-        {front: "portfolio_resume_second", back: "portfolio_mixed_first", links: [{text: "Visit 03", link: "https://zaxel.github.io/3d_resume"}]}, 
+        {front: "portfolio_resume_second", back: "portfolio_mixed_first", links: [{text: "Visit 03", link: "https://zaxel.github.io/resume_3d"}]}, 
         {front: "portfolio_mixed_second", back: "portfolio_sorter_first", links: [{text: "Visit 04", link: "https://zaxel.github.io/mixed_features_react_app"}]}, 
         {front: "portfolio_sorter_second", back: "portfolio_maze_first", links: [{text: "Visit 05", link: "https://zaxel.github.io/mail_sorter"}]},
         {front: "portfolio_maze_second", back: "portfolio_tetris_first", links: [{text: "Visit 06", link: "https://zaxel.github.io/maze-builder/"}]},

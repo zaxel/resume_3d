@@ -156,7 +156,7 @@ export class InitApp {
 
    _loadAnimatedChicks(){
     const chickSize = 4;
-    const chicksAmount = 10;
+    const chicksAmount = 5;
     const showLimitArea = false;
     const mainCharStatus = this.controls._input._keys;
     const mainCharPosition = this.character.mesh.position;

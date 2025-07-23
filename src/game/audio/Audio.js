@@ -20,6 +20,7 @@ export class Audio {
     this.btnsController = btnsController;
     this.chicks = chicks;
     this.updatesCount = 0;
+    this.initSettings = initSettings;
 
     this.audioFiles = audioFiles;
     this.riverCurve = riverCurve.riverCatmullCurve;
@@ -62,7 +63,7 @@ export class Audio {
 
     this.ambienceSounds = [this.parkSounds, this.riverSounds];
 
-    if (initSettings.blades) {
+    if (this.initSettings.blades) {
       this.windmillSounds = new THREE.PositionalAudio(this.listener);
       this.ambienceSounds.push(this.windmillSounds);
       const bladesGroup = this.scene.children.find(
@@ -72,7 +73,7 @@ export class Audio {
       bladesMesh.add(this.windmillSounds);
     }
 
-    if (initSettings.chicks) {
+    if (this.initSettings.chicks) {
       this.chicksSounds = new THREE.PositionalAudio(this.listener);
       this.ambienceSounds.push(this.chicksSounds);
       this.scene.add(this.chicksSounds);
@@ -82,7 +83,8 @@ export class Audio {
     this.soundsManager();
 
     this.updateRiverSound();
-    this.updateChicksSound();
+    if(this.initSettings.chicks)
+      this.updateChicksSound();
     this.initHelpBtnsHandler();
   }
 
@@ -113,7 +115,7 @@ export class Audio {
 
     return closestPoint;
   }
-  getCenterPointToChicks(point) {
+  getCenterPointToChicks() {
     const chickPositions = this.chicks.map(pos=>pos.chickPhysics.mesh.position);
 
     const center = chickPositions.reduce(
@@ -372,7 +374,7 @@ export class Audio {
 
   updateSoundsState() {
     this.updatesCount ++;
-    if(this.updatesCount %10)
+    if(this.initSettings.chicks && this.updatesCount %10)
       this.updateChicksSound();
     if (!this.charStateMachine._currentState) return;
     const state = this.charStateMachine._currentState.Name;

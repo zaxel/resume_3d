@@ -3,7 +3,7 @@ import wasm from 'vite-plugin-wasm';
 import topLevelAwait from 'vite-plugin-top-level-await';
 
 export default defineConfig({
-  base: "/3d_resume/",
+  base: "/resume_3d/",
   plugins: [
     wasm(),
     topLevelAwait(),
