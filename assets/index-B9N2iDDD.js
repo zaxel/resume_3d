@@ -30935,7 +30935,7 @@ void main() {
             <div class="c-main__how-container">
               <div class="c-main__how-pointer how-pointer">
                 <div class="how-pointer__img-container">
-                  <img src="./src/images/initPage/pointers.jpg" alt="chapters pointer">
+                  <img src="./help/pointers.jpg" alt="chapters pointer">
                 </div>
                 <p class="how-pointer__desctiption">
                   Follow the pointers to each resume board.
@@ -30943,7 +30943,7 @@ void main() {
               </div>
               <div class="c-main__how-bords how-boards">
                 <div class="how-boards__img-container">
-                  <img src="./src/images/initPage/board.jpg" alt="chapter board">
+                  <img src="./help/board.jpg" alt="chapter board">
                 </div>
                 <p class="how-boards__desctiption">
                   Approach a chapter board and press <kbd>r</kbd>.
