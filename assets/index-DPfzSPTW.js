@@ -30930,7 +30930,28 @@ void main() {
           const t = document.createElement("div");
           t.classList.add("help__modal");
           const e = document.createElement("div");
-          return e.classList.add("help__container"), e.innerHTML = `<fieldset class="c-main__right">
+          return e.classList.add("help__container"), e.innerHTML = `<fieldset class="c-main__left">
+            <legend class="c-main__title">How to Play</legend>
+            <div class="c-main__how-container">
+              <div class="c-main__how-pointer how-pointer">
+                <div class="how-pointer__img-container">
+                  <img src="./src/images/initPage/pointers.jpg" alt="chapters pointer">
+                </div>
+                <p class="how-pointer__desctiption">
+                  Follow the pointers to each resume board.
+                </p>
+              </div>
+              <div class="c-main__how-bords how-boards">
+                <div class="how-boards__img-container">
+                  <img src="./src/images/initPage/board.jpg" alt="chapter board">
+                </div>
+                <p class="how-boards__desctiption">
+                  Approach a chapter board and press <kbd>r</kbd>.
+                </p>
+              </div>
+            </div>
+          </fieldset>
+        <fieldset class="c-main__right">
             <legend class="c-main__title">Controls</legend>
             <div class="c-main__controls-kbd">
               <dl class="c-main__kbd wasd">
@@ -30957,7 +30978,7 @@ void main() {
                     </div>
                   </div>
                 </dt>
-                <dd>- movement</dd>
+                
               </dl>
               <dl class="c-main__kbd rand-action-kbd">
                 <dt>
@@ -31000,7 +31021,8 @@ void main() {
                 <dd>- open/close chapter</dd>
               </dl>
             </div>
-          </fieldset>`, t.append(e), this.close = document.createElement("button"), this.close.textContent = "close", this.close.classList.add("help__close"), this.close.addEventListener("click", (i) => {
+          </fieldset>
+          `, t.append(e), this.close = document.createElement("button"), this.close.textContent = "close", this.close.classList.add("help__close"), this.close.addEventListener("click", (i) => {
             this.hideModal(), this.show();
           }), t.append(this.close), this.body.append(t), this.setBtnListener(), t;
         }
