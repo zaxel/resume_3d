@@ -30244,10 +30244,6 @@ void main() {
             back: "cover",
             links: [
               {
-                text: "Call",
-                link: "tel:380676780478"
-              },
-              {
                 text: "Mail",
                 link: "mailto:sae11.z.alex@gmail.com"
               },
