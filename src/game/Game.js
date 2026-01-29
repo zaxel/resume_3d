@@ -22,7 +22,7 @@ import { SkyBox } from "./skybox/SkyBox.js";
 import { LoadManager } from "../init/LoadManager.js";
 import { HelpMenu } from "./helpMenu/HelpMenu.js";
 import { PlayAreaLimiter } from "./limiter/PlayAreaLimiter.js";
-import { ColliderDebug } from "./engine/debugger/ColliderDebug.js";
+import { PartialColliderDebug } from "./engine/debugger/PartialColliderDebug.js";
 import { degToRad } from "three/src/math/MathUtils.js";
 import {
   charMovementLimits,
@@ -46,6 +46,7 @@ import { objectsShadersFogReady } from "./fog/objectsShadersFogReady.js";
 import { WindMill } from "./windMill/WindMill.js";
 import { SimpleWater } from "./water/SimpleWater.js";
 import { createChicksPhysics, loadChickModels } from "./fauna/chicks/chick.js";
+import { ColliderDebugger } from "./engine/debugger/colliderDebugger.js";
 
 export class InitApp {
   constructor(initSettings) {
@@ -131,13 +132,11 @@ export class InitApp {
       initCharPosition,
       false
     ); //last parameter - helper grid
-
+    
     this._loadAnimatedModel();
-
-    this.loadPlayerAreaLimiter();
-
     if (this.initSettings.chicks) this._loadAnimatedChicks();
-
+    this.loadPlayerAreaLimiter();
+    
     this.audio = this._initAudio();
 
     this.setInteractions();
@@ -145,10 +144,10 @@ export class InitApp {
     this.setVegetation();
 
     this.initSettings.water ? this._addWater() : this._addSimpleWater();
-
+    
     this.setCollidersManually(colliders);
-    // new ColliderDebug(this.worldPhysics, this.scene).visualizeColliders(3000);
-
+    // new PartialColliderDebug(this.worldPhysics, this.scene).visualizeColliders(3000);
+    // this.colliderDebugger = new ColliderDebugger(this.worldPhysics, this.scene);
     this.animate();
   }
 
@@ -316,6 +315,7 @@ export class InitApp {
       "./models/bridges/bridges_c.glb",
       this.scene
     );
+
     await loadCompressedModel(
       this.LoadingManager,
       this.renderer,
@@ -356,7 +356,7 @@ export class InitApp {
         true, //receiveShadow
         false, //castShadow
       );
-      
+
       await loadCompressedModel(
         this.LoadingManager,
         this.renderer,
@@ -623,6 +623,10 @@ export class InitApp {
         const position = obj.rigidBody.translation();
         obj.mesh.position.set(position.x, position.y, position.z);
       });
+
+      //update Collider Debugger
+      if(this.colliderDebugger)
+        this.colliderDebugger.update();
     }
 
     this._frameCount++;

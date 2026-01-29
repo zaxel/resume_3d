@@ -36,21 +36,32 @@ export const loadAnimatedModel = (freeCamera, scene, cameraState, LoadingManager
   return { controls, keys };
 };
 
+
 export const createCharacterPhysics = (worldPhysics, scene, position, wareFrameEnabled = true) => {
-  const halfHeight = 4; // Half of the capsule height
+  const halfHeight = 4;
   const radius = 4;
 
-  const rigidBodyDesc = RAPIER.RigidBodyDesc.dynamic().setTranslation(position.x, position.y, position.z);
+  // REDUCE DAMPING SIGNIFICANTLY
+  const rigidBodyDesc = RAPIER.RigidBodyDesc
+    .dynamic()
+    .setTranslation(position.x, position.y, position.z)
+    .lockRotations()
+    // .setLinearDamping(0.15)     
+    // .setAngularDamping(0.15);   
+
   const rigidBody = worldPhysics.createRigidBody(rigidBodyDesc);
-
-  const colliderDesc = RAPIER.ColliderDesc.capsule(halfHeight, radius);
-  colliderDesc.setRestitution(0.01); //bouncing
-  colliderDesc.setDensity(2) //mass alt
   
-  worldPhysics.createCollider(colliderDesc, rigidBody);
+  // INCREASE DENSITY for proper falling
+  const colliderDesc = RAPIER.ColliderDesc
+    .capsule(halfHeight, radius)
+    .setRestitution(0.0)
 
-  const characterController = worldPhysics.createCharacterController(0.01);
-  const character = { rigidBody, controller: characterController };
+  worldPhysics.createCollider(colliderDesc, rigidBody);
+  
+  // Log the actual mass
+  // console.log(`Character mass: ${rigidBody.mass().toFixed(1)}kg`);
+  
+  const character = { rigidBody };
   const geometry = new THREE.CapsuleGeometry(radius, halfHeight * 2, 8, 16);
   const material = new THREE.MeshStandardMaterial({
     color: 0xff0000,
@@ -59,5 +70,6 @@ export const createCharacterPhysics = (worldPhysics, scene, position, wareFrameE
   const mesh = new THREE.Mesh(geometry, material);
   if (wareFrameEnabled) scene.add(mesh);
   character.mesh = mesh;
+  
   return character;
 };

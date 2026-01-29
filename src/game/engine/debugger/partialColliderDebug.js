@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import RAPIER from "@dimforge/rapier3d";
 
-export class ColliderDebug {
+export class PartialColliderDebug {
   constructor(worldPhysics, scene) {
     this.worldPhysics = worldPhysics;
     this._scene = scene;
