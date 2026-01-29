@@ -26071,7 +26071,7 @@ void main() {
         z: 2
       }, gl = {
         x: 0,
-        y: -70,
+        y: -80,
         z: 0
       }, _l = {
         maxX: 400,
@@ -28892,221 +28892,21 @@ void main() {
         {
           name: "layer",
           positions: {
-            x: 41,
+            x: 11,
+            y: -73,
+            z: 50
+          },
+          rotations: {
+            x: 110,
             y: 0,
-            z: 60
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
+            z: -90
           },
           dimensions: {
-            x: 22,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: -19,
-            y: 0,
-            z: 40
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 24,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: -15,
-            y: 2,
-            z: 41
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 20,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 41,
-            y: 2,
-            z: 60
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 17,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 11,
-            y: 4,
-            z: 50
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 44,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 11,
-            y: 6,
-            z: 50
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 41,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 11,
-            y: 8,
-            z: 50
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 38,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 12,
+            x: 90,
             y: 10,
-            z: 50
+            z: 1
           },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 34,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 12,
-            y: 12,
-            z: 50
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 29,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 12,
-            y: 14,
-            z: 50
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 25,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
-          group: "magic bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 11,
-            y: 16,
-            z: 50
-          },
-          rotations: {
-            x: 0,
-            y: 341,
-            z: 0
-          },
-          dimensions: {
-            x: 16,
-            y: 1,
-            z: 10
-          },
-          figure: "cuboid",
+          figure: "cylinder",
           group: "magic bridge"
         },
         {
@@ -29232,221 +29032,41 @@ void main() {
         {
           name: "bottom bridge",
           positions: {
-            x: 187,
-            y: 3,
-            z: 170
+            x: 183,
+            y: -116,
+            z: 177
           },
           rotations: {
-            x: 0,
-            y: 59,
-            z: 354
+            x: 32,
+            y: 0,
+            z: -90
           },
           dimensions: {
-            x: 15,
-            y: 1,
-            z: 14
+            x: 120,
+            y: 14,
+            z: 1
           },
-          figure: "cuboid",
-          group: "bottom bridge"
-        },
-        {
-          name: "bottom bridge",
-          positions: {
-            x: 187,
-            y: 1,
-            z: 170
-          },
-          rotations: {
-            x: 0,
-            y: 59,
-            z: 354
-          },
-          dimensions: {
-            x: 25,
-            y: 1,
-            z: 14
-          },
-          figure: "cuboid",
-          group: "bottom bridge"
-        },
-        {
-          name: "bottom bridge",
-          positions: {
-            x: 187,
-            y: -1,
-            z: 170
-          },
-          rotations: {
-            x: 0,
-            y: 59,
-            z: 354
-          },
-          dimensions: {
-            x: 35,
-            y: 1,
-            z: 14
-          },
-          figure: "cuboid",
-          group: "bottom bridge"
-        },
-        {
-          name: "bottom bridge",
-          positions: {
-            x: 187,
-            y: -4,
-            z: 170
-          },
-          rotations: {
-            x: 0,
-            y: 59,
-            z: 354
-          },
-          dimensions: {
-            x: 50,
-            y: 1,
-            z: 14
-          },
-          figure: "cuboid",
+          figure: "cylinder",
           group: "bottom bridge"
         },
         {
           name: "layer",
           positions: {
             x: 77,
-            y: 11,
-            z: -248
+            y: -74,
+            z: -249
           },
           rotations: {
-            x: 0,
-            y: 10,
-            z: 0
-          },
-          dimensions: {
-            x: 7,
-            y: 1,
-            z: 23
-          },
-          figure: "cuboid",
-          group: "top bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 77,
-            y: 9,
-            z: -248
-          },
-          rotations: {
-            x: 0,
-            y: 10,
-            z: 0
-          },
-          dimensions: {
-            x: 15,
-            y: 1,
-            z: 23
-          },
-          figure: "cuboid",
-          group: "top bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 77,
-            y: 7,
-            z: -248
-          },
-          rotations: {
-            x: 0,
-            y: 10,
-            z: 0
-          },
-          dimensions: {
-            x: 20,
-            y: 1,
-            z: 23
-          },
-          figure: "cuboid",
-          group: "top bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 77,
-            y: 5,
-            z: -248
-          },
-          rotations: {
-            x: 0,
-            y: 10,
-            z: 0
-          },
-          dimensions: {
-            x: 28,
-            y: 1,
-            z: 23
-          },
-          figure: "cuboid",
-          group: "top bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 76,
-            y: 3,
-            z: -248
-          },
-          rotations: {
-            x: 0,
-            y: 10,
-            z: 0
-          },
-          dimensions: {
-            x: 33,
-            y: 1,
-            z: 23
-          },
-          figure: "cuboid",
-          group: "top bridge"
-        },
-        {
-          name: "layer",
-          positions: {
-            x: 78,
-            y: 1,
-            z: -248
-          },
-          rotations: {
-            x: 0,
-            y: 10,
-            z: 0
-          },
-          dimensions: {
-            x: 36,
-            y: 1,
-            z: 23
-          },
-          figure: "cuboid",
-          group: "top bridge"
-        },
-        {
-          name: "layer",
-          positions: {
             x: 80,
-            y: -3,
-            z: -248
-          },
-          rotations: {
-            x: 0,
-            y: 10,
-            z: 0
+            y: 0,
+            z: -90
           },
           dimensions: {
-            x: 40,
-            y: 1,
-            z: 23
+            x: 84,
+            y: 21,
+            z: 1
           },
-          figure: "cuboid",
+          figure: "cylinder",
           group: "top bridge"
         },
         {
@@ -33620,16 +33240,15 @@ void main() {
           keys: l
         };
       }, IL = (s, t, e, i = true) => {
-        const a = li.RigidBodyDesc.dynamic().setTranslation(e.x, e.y, e.z), o = s.createRigidBody(a), c = li.ColliderDesc.capsule(4, 4);
-        c.setRestitution(0.01), c.setDensity(2), s.createCollider(c, o);
-        const l = s.createCharacterController(0.01), h = {
-          rigidBody: o,
-          controller: l
-        }, d = new Jh(4, 4 * 2, 8, 16), u = new ci({
+        const a = li.RigidBodyDesc.dynamic().setTranslation(e.x, e.y, e.z).lockRotations(), o = s.createRigidBody(a), c = li.ColliderDesc.capsule(4, 4).setRestitution(0);
+        s.createCollider(c, o);
+        const l = {
+          rigidBody: o
+        }, h = new Jh(4, 4 * 2, 8, 16), d = new ci({
           color: 16711680,
           wireframe: true
-        }), f = new me(d, u);
-        return i && t.add(f), h.mesh = f, h;
+        }), u = new me(h, d);
+        return i && t.add(u), l.mesh = u, l;
       }, ML = (s) => {
         const e = new hi().load("./noise/perlin_noise.png");
         e.wrapS = e.wrapT = ni;
@@ -34367,7 +33986,7 @@ void main() {
         async _init() {
           this.scene = new xo(), this.camera = new Ve(75, window.innerWidth / window.innerHeight, 1, 1e3), this.camera.position.set(-30, 50, 70), this.renderer = new iA({
             antialias: true
-          }), this.renderer.shadowMap.enabled = true, this.renderer.shadowMap.type = rp, this.renderer.setSize(window.innerWidth, window.innerHeight), document.body.appendChild(this.renderer.domElement), new _F(this.initSettings.fog, this.scene).addSkyBox(), this.initLighting(), wg(this.cameraState, this.camera, this.renderer), this.riverCurveMesh = this.createRiverCurveMesh(), this.groundMeshToScene = true, this.terrain = await UP(this.GLTFLoader, this.scene, this.groundMeshToScene, this.initSettings), await this._loadStructures(), this.initSettings.blades && this._windMillBlades(), this.shaders = ML(this.scene), vF(this.worldPhysics, this.terrain), this.initSettings.grass && this._addGrass(this.terrain), this.initSettings.fog && this.addExpImprovedFog(14674419, 6e-4), this.character = IL(this.worldPhysics, this.scene, Ao, false), this._loadAnimatedModel(), this.loadPlayerAreaLimiter(), this.initSettings.chicks && this._loadAnimatedChicks(), this.audio = this._initAudio(), this.setInteractions(), this.setVegetation(), this.initSettings.water ? this._addWater() : this._addSimpleWater(), this.setCollidersManually(sg), this.animate();
+          }), this.renderer.shadowMap.enabled = true, this.renderer.shadowMap.type = rp, this.renderer.setSize(window.innerWidth, window.innerHeight), document.body.appendChild(this.renderer.domElement), new _F(this.initSettings.fog, this.scene).addSkyBox(), this.initLighting(), wg(this.cameraState, this.camera, this.renderer), this.riverCurveMesh = this.createRiverCurveMesh(), this.groundMeshToScene = true, this.terrain = await UP(this.GLTFLoader, this.scene, this.groundMeshToScene, this.initSettings), await this._loadStructures(), this.initSettings.blades && this._windMillBlades(), this.shaders = ML(this.scene), vF(this.worldPhysics, this.terrain), this.initSettings.grass && this._addGrass(this.terrain), this.initSettings.fog && this.addExpImprovedFog(14674419, 6e-4), this.character = IL(this.worldPhysics, this.scene, Ao, false), this._loadAnimatedModel(), this.initSettings.chicks && this._loadAnimatedChicks(), this.loadPlayerAreaLimiter(), this.audio = this._initAudio(), this.setInteractions(), this.setVegetation(), this.initSettings.water ? this._addWater() : this._addSimpleWater(), this.setCollidersManually(sg), this.animate();
         }
         _loadAnimatedChicks() {
           const n = this.controls._input._keys, r = this.character.mesh.position, c = YL(this.scene, this.LoadingManager, da, this.worldPhysics, this.terrain, yP, 4, 5, false, false, this.initSettings.fog, xP, false, n, r);
@@ -34508,7 +34127,7 @@ void main() {
           this._previousFrame = t, this._fogController && this._fogController.fogStep(t), this.grassField && this.grassField.update(t), this.renderer.render(this.scene, this.camera), this.step(e), this._frameCount % this._physicsFrameSkip === 0 && (this.keys.limitAreaWalk || this.keys.limitAreaTurn ? this._updateLimitedAreaMovement(e) : this._updateCharacterMovement(e), this.windMill && this.windMill.updateBlades(e), this.playerAreaLimiter && this.playerAreaLimiter.update(), this.markersDistanceHandler && (this.markersDistanceHandler.updateCharPositionDistance(), this.modalMarkers.updateMarkerModalStatus()), this.controls && this.dirLight && this.dirLight.updateDirLightPosition(this.controls.position), this.worldPhysics.step(this._eventQueue, this._fixedTimeStep), this.audio && this.audio.updateSoundsState(), this.simpleObjects.forEach((i) => {
             const n = i.rigidBody.translation();
             i.mesh.position.set(n.x, n.y, n.z);
-          })), this._frameCount++, this.stats && this.stats.stats.end();
+          }), this.colliderDebugger && this.colliderDebugger.update()), this._frameCount++, this.stats && this.stats.stats.end();
         }
         step(t) {
           if (this.controls && this.controls.updateController(t), this.chicks && this.chicks.length) for (let e = 0; e < this.chicks.length; e++) this.chicks[e].controls.updateChickController(t);
