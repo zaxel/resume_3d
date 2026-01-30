@@ -13,10 +13,17 @@
 
 html,
 body {
-  min-height: 100%;
+  height: 100%;
 }
+
 ul, li{
   list-style-type: none;
+}
+.overflow-hidden{
+  overflow: hidden;
+}
+.overflow-auto{
+  overflow: auto;
 }
 
 /* marker popup start*/
@@ -535,6 +542,7 @@ a.chapter-link-show {
   background: url("./src/images/initPage/resume_screen.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 
 .loading__modal {
@@ -558,6 +566,7 @@ a.chapter-link-show {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .loading__label {
@@ -583,6 +592,7 @@ a.chapter-link-show {
 
 .loading__progress::-webkit-progress-value {
   background-color: #5e3b1e;
+
 }
 
 .loading-show {

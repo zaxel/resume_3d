@@ -47,6 +47,7 @@ import { WindMill } from "./windMill/WindMill.js";
 import { SimpleWater } from "./water/SimpleWater.js";
 import { createChicksPhysics, loadChickModels } from "./fauna/chicks/chick.js";
 import { ColliderDebugger } from "./engine/debugger/colliderDebugger.js";
+import { Balls } from "./balls/Balls.js";
 
 export class InitApp {
   constructor(initSettings) {
@@ -125,6 +126,10 @@ export class InitApp {
     if (this.initSettings.grass) this._addGrass(this.terrain);
 
     if (this.initSettings.fog) this.addExpImprovedFog(0xdfe9f3, 0.0006);
+
+    if(this.initSettings.ball)
+      new Balls(this.simpleObjects, this.RAPIER, this.worldPhysics, this.scene).addBalls(30);
+
 
     this.character = createCharacterPhysics(
       this.worldPhysics,
@@ -392,14 +397,14 @@ export class InitApp {
   _updateCharacterMovement(deltaTime) {
     if (!this.character) return;
 
-    const baseSpeed = this.keys.shift ? 36 : 18;
+    const baseSpeed = this.keys.shift ? 20 : 10;
     const frameRateFactor = 60;
     const maxAllowedDepthPos = -100;
     const speed = baseSpeed * deltaTime * frameRateFactor;
 
     this._acceleration = new THREE.Vector3(0.25, 0.5, 0.25);
     this._deceleration = new THREE.Vector3(-0.5, -0.0001, -0.5);
-    this._rotationSpeed = 4.0 * Math.PI * deltaTime * this._acceleration.y;
+    this._rotationSpeed = 2.0 * Math.PI * deltaTime * this._acceleration.y;
     this._rotationAxis = new THREE.Vector3(0, 1, 0);
     this.rotation = new THREE.Quaternion();
 
@@ -590,39 +595,44 @@ export class InitApp {
     this.renderer.render(this.scene, this.camera);
     this.step(deltaTime);
 
-    // **Only update physics every `_physicsFrameSkip` frames**
-    if (this._frameCount % this._physicsFrameSkip === 0) {
-      if (this.keys.limitAreaWalk || this.keys.limitAreaTurn) {
+    //movement or returning into allowed area
+    if (this.keys.limitAreaWalk || this.keys.limitAreaTurn) {
         this._updateLimitedAreaMovement(deltaTime);
       } else {
         this._updateCharacterMovement(deltaTime);
       }
+
       // update windmill blades
-      if (this.windMill) this.windMill.updateBlades(deltaTime);
+    if (this.windMill) this.windMill.updateBlades(deltaTime);
+    
+    // this._updateCharacterMesh();
+    if (this.playerAreaLimiter) this.playerAreaLimiter.update();
 
-      // this._updateCharacterMesh();
-      if (this.playerAreaLimiter) this.playerAreaLimiter.update();
+    //update directional light
+    if (this.controls && this.dirLight) {
+      this.dirLight.updateDirLightPosition(this.controls.position);
+    }
+    
+    //update sounds data
+    if (this.audio) this.audio.updateSoundsState();
 
+    // Use fixed timestep for physics to ensure consistent behavior
+    this.worldPhysics.step(this._eventQueue, this._fixedTimeStep);
+
+    // Sync simpleObjects with physics
+    this.simpleObjects.forEach((obj) => {
+      const position = obj.rigidBody.translation();
+      obj.mesh.position.set(position.x, position.y, position.z);
+    });
+
+    // **Only update physics every `_physicsFrameSkip` frames**
+    if (this._frameCount % this._physicsFrameSkip === 0) {
+      
       //update markers
       if (this.markersDistanceHandler) {
         this.markersDistanceHandler.updateCharPositionDistance();
         this.modalMarkers.updateMarkerModalStatus();
       }
-      //update directional light
-      if (this.controls && this.dirLight) {
-        this.dirLight.updateDirLightPosition(this.controls.position);
-      }
-      // Use fixed timestep for physics to ensure consistent behavior
-      this.worldPhysics.step(this._eventQueue, this._fixedTimeStep);
-
-      //update sounds data
-      if (this.audio) this.audio.updateSoundsState();
-
-      // Sync simpleObjects with physics
-      this.simpleObjects.forEach((obj) => {
-        const position = obj.rigidBody.translation();
-        obj.mesh.position.set(position.x, position.y, position.z);
-      });
 
       //update Collider Debugger
       if(this.colliderDebugger)

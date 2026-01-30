@@ -2,6 +2,7 @@ import * as THREE from "three";
 
 export class LoadManager {
   constructor(helpMenu) {
+    this.body = document.body;
     this.loadPage = document.getElementById("loading");
     this.progressBar = document.getElementById("ld-progress");
     this.manager = new THREE.LoadingManager();
@@ -22,6 +23,7 @@ export class LoadManager {
 
   _onStart(url, itemsLoaded, itemsTotal) {
     if (this.loadPage) this.loadPage.classList.add("loading-show");
+    this.body.classList.add("overflow-hidden");
     this.helpMenu.hide();
   }
 
@@ -34,9 +36,11 @@ export class LoadManager {
   _onLoad() {
     if (this.loadPage) this.loadPage.classList.remove("loading-show");
     this.helpMenu.show();
+    this.body.classList.remove("overflow-hidden");
   }
 
   _onError(url) {
+    this.body.classList.remove("overflow-hidden");
     console.error(`Error loading: ${url}`);
   }
 }

@@ -4,10 +4,27 @@ import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader.js";
 import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
 
 export const loadModel = (url, scene, position = { x: 0, y: 0, z: 0 }, scale = 1, rotation = { x: 0, y: 0, z: 0 }) => {
-  this.GLTFLoader.load(
+  const loader = new GLTFLoader();
+  loader.load(
     url,
     (gltf) => {
       const model = gltf.scene;
+
+
+      model.traverse((child) => {
+        if (child.isMesh) {
+          console.log("Material:", child.material);
+          console.log("Has map:", child.material.map);
+
+          // If no texture, try adding a simple color
+          if (!child.material.map) {
+            child.material.color.setHex(0xff0000); // Red fallback
+          }
+        }
+      })
+
+
+
       model.position.set(position.x, position.y, position.z);
       model.scale.set(scale, scale, scale);
       model.rotateX(rotation.x);
@@ -90,7 +107,7 @@ export const loadCompressedModel = (() => {
           model.rotateY(rotation.y);
           model.rotateZ(rotation.z);
           model._forShadersModifiable = true;
-          if(name)
+          if (name)
             model.name = name;
 
           model.traverse((child) => {
