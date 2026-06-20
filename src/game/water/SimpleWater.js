@@ -14,7 +14,7 @@ export class SimpleWater {
     const simpleWaterGeometry = new THREE.PlaneGeometry(400, 1300, 10, 10);
     
     const simpleWaterMaterial = new THREE.MeshStandardMaterial({
-      color: 0x184d72,
+      color: 0x3AC3F3,
       transparent: true,
       opacity: 0.7,
       fog: true,
