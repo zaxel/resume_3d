@@ -33293,7 +33293,7 @@ void main() {
           const e = new hi().load("./noise/perlin_noise.png");
           e.wrapS = e.wrapT = ri;
           const i = new Er(400, 1300, 10, 10), n = new ii({
-            color: 1592690,
+            color: 3851251,
             transparent: true,
             opacity: 0.7,
             fog: true,
